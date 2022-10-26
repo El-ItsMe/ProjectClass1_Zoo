@@ -28,12 +28,12 @@ namespace ProjectClass1_Zoo
         private string _squars;
         public string EmittedSound { get; set; } //Издаваемый звук
         private string _sounds;
-        public Bear(string name, string biom, string requiredArea, string whatDoesItEating, string eating, string squars, string sounds)
+        public Bear(string name, string nameOfAnimalSpecies, string biom, string requiredArea, string eating, string squars, string sounds)
         {
             Name = _name;
             NameOfAnimalSpecies = _nameOfAnimalSpecies;
-            Biom = biom;
-            RequiredArea = requiredArea;
+            Biom = _biom;
+            RequiredArea = _requiredArea;
             WhatDoesItEating = _eating;
             Squars = _squars;
             EmittedSound = _sounds;
