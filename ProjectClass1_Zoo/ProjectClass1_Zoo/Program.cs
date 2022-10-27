@@ -1,4 +1,8 @@
 ﻿using ProjectClass1_Zoo;
+using ProjectClass1_Zoo.Options;
+using ProjectClass1_Zoo.Animals;
 
-Bear FirstBear = new Bear("Pou", "Panda", "Tropics", "100 m^2", "Bambuk", "predator", "Grr-Grr");
-Console.WriteLine(FirstBear);
+
+Bear panda1 = new Bear("Pou", 6);
+panda1.DoEat("bamboo", 30);
+panda1.DoPlay();
