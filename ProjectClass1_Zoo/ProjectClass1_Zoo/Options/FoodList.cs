@@ -8,6 +8,7 @@ namespace ProjectClass1_Zoo.Options
 {
     public enum FoodList
     {
-        Bamboo
+        Bamboo,
+        Fish
     }
 }

@@ -53,10 +53,8 @@ namespace ProjectClass1_Zoo.Animals
             Age = age;
         }
 
-        public virtual void DoSound()
-        {
-            Console.WriteLine(EmittedSound);
-        }
+        public abstract void DoSound();
+        
 
         public abstract void DoPlay();
 

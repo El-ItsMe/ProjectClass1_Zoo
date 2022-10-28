@@ -3,6 +3,10 @@ using ProjectClass1_Zoo.Options;
 using ProjectClass1_Zoo.Animals;
 
 
-Bear panda1 = new Bear("Pou", 6);
-panda1.DoEat("bamboo", 30);
-panda1.DoPlay();
+Bear panda = new Bear("Pou", 6);
+panda.DoEat("bamboo", 30);
+panda.DoPlay();
+
+Penguin firstPenguin = new Penguin ("Kovalski", 6);
+firstPenguin.DoEat("Fish", 6);
+firstPenguin.DoPlay();

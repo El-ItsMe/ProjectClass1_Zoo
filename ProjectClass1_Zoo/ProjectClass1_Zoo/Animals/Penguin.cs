@@ -7,26 +7,25 @@ using ProjectClass1_Zoo.Options;
 
 namespace ProjectClass1_Zoo.Animals
 {
-    public class Bear: AbstractAnimals
+    public class Penguin : AbstractAnimals
     {
-        public Bear(string name, int age): base(name, age)
-        {
-            food = Options.FoodList.Bamboo;
-            Biom = Options.BiomVariants.Tropics;
-            NameOfAnimalSpecies = "Panda";
+        public Penguin(string name, int age) : base(name, age)
+        {    
+            food = Options.FoodList.Fish;
+            Biom = Options.BiomVariants.Taiga;
+            NameOfAnimalSpecies = "Penguin";
             RequiredArea = "108 m^2";
-            EmittedSound = "Grrrrr-Grrrr";
+            EmittedSound = "Piu-piu-piu";
         }
 
         public override void DoSound()
         {
             Console.WriteLine(EmittedSound);
         }
-        
+
         public override void DoPlay()
         {
-            Console.WriteLine($"{Name} eating bamboo");
+            Console.WriteLine($"{Name} dancing");
         }
-
     }
 }
