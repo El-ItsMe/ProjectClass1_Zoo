@@ -10,7 +10,30 @@ namespace ProjectClass1_Zoo.Animals
     public abstract class AbstractAnimals
     {
         public string Name { get; set; }
+        public string GetName()
+        {
+            return Name;
+        }
+        public void SetName()
+        {
+            if (Name=="")
+            {
+                throw new ArgumentException();
+            }
+        }
+
         public int Age { get; set; }
+        public int GetAge()
+        {
+            return Age;
+        }
+        public void SetAge()
+        {
+            if (Age < 0)
+            {
+                throw new ArgumentException("Given Age < 0");
+            }
+        }
 
         public string NameOfAnimalSpecies { get; protected set; } //Название вида 
 
