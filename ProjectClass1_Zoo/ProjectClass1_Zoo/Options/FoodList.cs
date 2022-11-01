@@ -9,6 +9,11 @@ namespace ProjectClass1_Zoo.Options
     public enum FoodList
     {
         Bamboo,
-        Fish
+        Fish,
+        Grain_feed, //zlakovie korma
+        Legume_feed, //bobovie korma
+        Meat,
+        Oats,
+        Mushrooms
     }
 }

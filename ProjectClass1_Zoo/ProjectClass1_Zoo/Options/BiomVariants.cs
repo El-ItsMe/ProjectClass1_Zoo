@@ -13,6 +13,7 @@ namespace ProjectClass1_Zoo.Options
         Taiga,
         Steppes,
         Savannahs,
+        Сoniferous_forests,
         Deserts, //пустыня
         Tropical_rain_forests,
         Winter_green_forests,

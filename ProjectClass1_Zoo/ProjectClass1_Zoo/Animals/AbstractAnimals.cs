@@ -39,7 +39,7 @@ namespace ProjectClass1_Zoo.Animals
 
         public BiomVariants Biom { get; protected set; }//Необходимый биом
 
-        public string RequiredArea { get; protected set; } //Необходимая площадь на особь
+        public int RequiredArea { get; protected set; } //Необходимая площадь на особь
 
         public FoodList food { get; set; } //Чем питается
 
@@ -53,16 +53,23 @@ namespace ProjectClass1_Zoo.Animals
             Age = age;
         }
 
-        public abstract void DoSound();
+        public virtual void DoSound()
+        {
+            Console.WriteLine($"{Name} makes a sound like {EmittedSound}");
+        }
         
 
         public abstract void DoPlay();
 
-        public void DoEat(string food, int kg)
+        public virtual void DoEat(string food, int kg)
         {
             if (food.Contains(food))
             {
-                Console.WriteLine($"{Name} was eat {kg} kg {food}");
+                Console.WriteLine($"{Name} was eat {kg} kg/gr {food}");
+            }
+            else 
+            {
+                Console.WriteLine($"{Name} doesn't eat {food}");
             }
         }
     }

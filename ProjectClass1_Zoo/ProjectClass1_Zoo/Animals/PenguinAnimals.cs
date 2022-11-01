@@ -7,15 +7,16 @@ using ProjectClass1_Zoo.Options;
 
 namespace ProjectClass1_Zoo.Animals
 {
-    public class Penguin : AbstractAnimals
+    public class PenguinAnimals : AbstractAnimals
     {
-        public Penguin(string name, int age) : base(name, age)
+        public PenguinAnimals(string name, int age) : base(name, age)
         {    
             food = Options.FoodList.Fish;
             Biom = Options.BiomVariants.Taiga;
             NameOfAnimalSpecies = "Penguin";
-            RequiredArea = "108 m^2";
+            RequiredArea = 15;
             EmittedSound = "Piu-piu-piu";
+            IsPredator = true;
         }
 
         public override void DoSound()
@@ -26,6 +27,18 @@ namespace ProjectClass1_Zoo.Animals
         public override void DoPlay()
         {
             Console.WriteLine($"{Name} dancing");
+        }
+
+        public virtual void DoEat(string food, int kg)
+        {
+            if (food.Contains(food))
+            {
+                Console.WriteLine($"{Name} was eat {kg} kg/gr {food}");
+            }
+            else
+            {
+                Console.WriteLine($"{Name} doesn't eat {food}");
+            }
         }
     }
 }
