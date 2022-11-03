@@ -13,10 +13,10 @@ namespace ProjectClass1_Zoo.Animals
         {
             food = Options.FoodList.Bamboo;
             Biom = Options.BiomVariants.Tropics;
-            NameOfAnimalSpecies = "Panda";
-            RequiredArea = 30;
+            RequiredArea =  30;
             EmittedSound = "Grrrrr-Grrrr";
             IsPredator = true;
+            Species = "Bear";
         }
 
         public override void DoSound()

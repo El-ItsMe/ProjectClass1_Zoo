@@ -14,10 +14,10 @@ namespace ProjectClass1_Zoo.Animals
             food = Options.FoodList.Mushrooms;
             food = Options.FoodList.Oats;
             Biom = Options.BiomVariants.Steppes;
-            NameOfAnimalSpecies = "Rabbit";
             RequiredArea = 8;
             EmittedSound = "grrrrr-grrrrr";
             IsPredator = false;
+            Species = "Rabbit";
         }
 
         public override void DoSound()

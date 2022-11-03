@@ -14,10 +14,10 @@ namespace ProjectClass1_Zoo.Animals
             food = Options.FoodList.Meat;
             food = Options.FoodList.Fish;
             Biom = Options.BiomVariants.Сoniferous_forests;
-            NameOfAnimalSpecies = "Lynx";
             RequiredArea = 25;
             EmittedSound = "agressive MYAU-MYAU";
             IsPredator = true;
+            Species = "Lynx";
         }
 
         public override void DoSound()

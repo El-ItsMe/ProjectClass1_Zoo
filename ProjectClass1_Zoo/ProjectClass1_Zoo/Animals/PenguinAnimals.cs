@@ -13,10 +13,10 @@ namespace ProjectClass1_Zoo.Animals
         {    
             food = Options.FoodList.Fish;
             Biom = Options.BiomVariants.Taiga;
-            NameOfAnimalSpecies = "Penguin";
             RequiredArea = 15;
             EmittedSound = "Piu-piu-piu";
             IsPredator = true;
+            Species = "Penguin";
         }
 
         public override void DoSound()

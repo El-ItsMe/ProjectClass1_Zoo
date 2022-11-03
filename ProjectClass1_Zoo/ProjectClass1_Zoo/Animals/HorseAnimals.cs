@@ -14,10 +14,10 @@ namespace ProjectClass1_Zoo.Animals
             food = Options.FoodList.Grain_feed;
             food = Options.FoodList.Legume_feed;
             Biom = Options.BiomVariants.Steppes;
-            NameOfAnimalSpecies = "Horse";
             RequiredArea = 25;
             EmittedSound = "Igo-go-go";
             IsPredator = false;
+            Species = "Horse";
         }
 
         public override void DoSound()

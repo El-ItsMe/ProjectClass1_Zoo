@@ -35,7 +35,7 @@ namespace ProjectClass1_Zoo.Animals
             }
         }
 
-        public string NameOfAnimalSpecies { get; protected set; } //Название вида 
+        public string Species { get; protected set; } //разновидность животных
 
         public BiomVariants Biom { get; protected set; }//Необходимый биом
 
