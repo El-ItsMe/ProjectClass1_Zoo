@@ -11,8 +11,10 @@ namespace ProjectClass1_Zoo.Animals
     {
         public LynxAnimals(string name, int age) : base(name, age)
         {
-            food = Options.FoodList.Meat;
-            food = Options.FoodList.Fish;
+            FoodVariants = new List<FoodList>()
+            {
+                FoodList.Meat
+            };
             Biom = Options.BiomVariants.Сoniferous_forests;
             RequiredArea = 25;
             EmittedSound = "agressive MYAU-MYAU";

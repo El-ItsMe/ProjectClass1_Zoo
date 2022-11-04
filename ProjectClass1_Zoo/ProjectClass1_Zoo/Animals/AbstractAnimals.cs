@@ -41,7 +41,7 @@ namespace ProjectClass1_Zoo.Animals
 
         public int RequiredArea { get; protected set; } //Необходимая площадь на особь
 
-        public FoodList food { get; set; } //Чем питается
+        public List<FoodList> FoodVariants { get; protected set; } //Чем питается
 
         public bool IsPredator { get; protected set; } //отряд хищник или травоядное
 

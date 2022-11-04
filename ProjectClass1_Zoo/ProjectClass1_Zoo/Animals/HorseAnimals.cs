@@ -11,8 +11,11 @@ namespace ProjectClass1_Zoo.Animals
     {
         public HorseAnimals(string name, int age) : base(name, age)
         {
-            food = Options.FoodList.Grain_feed;
-            food = Options.FoodList.Legume_feed;
+            FoodVariants = new List<FoodList>()
+            {
+                FoodList.Grain_feed,
+                FoodList.Legume_feed
+            };
             Biom = Options.BiomVariants.Steppes;
             RequiredArea = 25;
             EmittedSound = "Igo-go-go";

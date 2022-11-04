@@ -11,8 +11,11 @@ namespace ProjectClass1_Zoo.Animals
     {
         public Rabbit(string name, int age) : base(name, age)
         {
-            food = Options.FoodList.Mushrooms;
-            food = Options.FoodList.Oats;
+            FoodVariants = new List<FoodList>()
+            {
+                FoodList.Oats,
+                FoodList.Mushrooms
+            };
             Biom = Options.BiomVariants.Steppes;
             RequiredArea = 8;
             EmittedSound = "grrrrr-grrrrr";

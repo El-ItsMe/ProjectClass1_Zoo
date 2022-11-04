@@ -10,8 +10,11 @@ namespace ProjectClass1_Zoo.Animals
     public class PenguinAnimals : AbstractAnimals
     {
         public PenguinAnimals(string name, int age) : base(name, age)
-        {    
-            food = Options.FoodList.Fish;
+        {
+            FoodVariants = new List<FoodList>()
+            {
+                FoodList.Fish
+            };
             Biom = Options.BiomVariants.Taiga;
             RequiredArea = 15;
             EmittedSound = "Piu-piu-piu";

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ProjectClass1_Zoo.Options;
+using ProjectClass1_Zoo;
+using ProjectClass1_Zoo.Animals;
 
 namespace ProjectClass1_Zoo.Animals
 {
@@ -11,7 +13,10 @@ namespace ProjectClass1_Zoo.Animals
     {
         public BearAnimals(string name, int age): base(name, age)
         {
-            food = Options.FoodList.Bamboo;
+            FoodVariants = new List<FoodList>()
+            {
+                FoodList.Bamboo
+            };
             Biom = Options.BiomVariants.Tropics;
             RequiredArea =  30;
             EmittedSound = "Grrrrr-Grrrr";
