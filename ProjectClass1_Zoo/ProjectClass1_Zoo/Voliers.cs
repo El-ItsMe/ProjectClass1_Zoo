@@ -47,7 +47,7 @@ namespace ProjectClass1_Zoo
         }
 
         //Узнать сколько и какой еды осталось в кормушках
-       
+
         public Message FindHowMuchAndWhatKindOfFoodLeftInFeeder(FoodList foodname, int givenFood, int eatenFood) //Записываем в метод тип еды, сколько еды дали, сколько еды съедено
         {
             if (givenFood == 0) //если еду совсем не дали, выводим сообщение о том, что нужно вывести письмо
@@ -74,7 +74,7 @@ namespace ProjectClass1_Zoo
             }
         }
 
-        //Может содержать в себе различные типы животных
+        //Может содержать в себе различные типы животных ()
 
         public Message IsItPossibleToPlaceTheseAnimals(AbstractAnimals animals)
         {
@@ -102,7 +102,7 @@ namespace ProjectClass1_Zoo
                         };
                         break;
                     }
-                    else 
+                    else
                     {
                         if (FindSvobodnoeMesto() > animals.RequiredArea)
                         {
@@ -125,42 +125,31 @@ namespace ProjectClass1_Zoo
                             };
                         }
                     }
-
-                return new Message()
-                {
-                    Text = "Перейти к рассмотрению не хищных животных",
-                    SenderName = Name,
-                    SenderType = "Aviary",
-                    MessageType = MessageType.Failed
-                };
             }
             else
             {
                 return new Message()
                 {
-                    Text = "Перейти к рассмотрению не хищных животных",
+                    Text = "Не поселилось",
                     SenderName = Name,
                     SenderType = "Aviary",
                     MessageType = MessageType.Failed
                 };
             }
         }
-
         private int FindSvobodnoeMesto()
         {
             int svobodnoeMesto = Square;
-                foreach (AbstractAnimals animal in Animals)
-                {
-                    svobodnoeMesto -= animal.RequiredArea;
-                }
+            foreach (AbstractAnimals animal in Animals)
+            {
+                svobodnoeMesto -= animal.RequiredArea;
+            }
 
             return svobodnoeMesto;
         }
     }
 }
-
-
-
+ 
 
 
 //Добавление животного/ Не копировка, код взят чисто для разбора

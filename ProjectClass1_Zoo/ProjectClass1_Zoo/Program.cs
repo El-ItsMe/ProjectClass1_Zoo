@@ -38,11 +38,11 @@ using ProjectClass1_Zoo.Animals;
 
 Voliers volier = new Voliers("Для пингвинов", BiomVariants.Taiga, 250, "Penguin");
 PenguinAnimals penguin = new PenguinAnimals("Denki", 3);
-Console.WriteLine(volier.PoselilsaIliNet(penguin));
+Console.WriteLine(volier.Add(penguin));
 //HorseAnimals horse1 = new HorseAnimals("Bingo", 10);
 //Console.WriteLine(volier.NasipaemEdu());
-Console.WriteLine();
-Voliers volier1 = new Voliers("Вольер для травоядных", BiomVariants.Tropics, 300,"Horse");
-Console.WriteLine(volier1.FindHowMuchAndWhatKindOfFoodLeftInFeeder(FoodList.Oats, 80, 50));
-PenguinAnimals penguin2 = new PenguinAnimals("Kovalski", 3);
-Console.WriteLine(volier1.IsItPossibleToPlaceTheseAnimals(penguin2));
+//Console.WriteLine();
+//Voliers volier1 = new Voliers("Вольер для травоядных", BiomVariants.Tropics, 300,"Horse");
+//Console.WriteLine(volier1.FindHowMuchAndWhatKindOfFoodLeftInFeeder(FoodList.Oats, 80, 50));
+//PenguinAnimals penguin2 = new PenguinAnimals("Kovalski", 3);
+//Console.WriteLine(volier1.IsItPossibleToPlaceTheseAnimals(penguin2));
