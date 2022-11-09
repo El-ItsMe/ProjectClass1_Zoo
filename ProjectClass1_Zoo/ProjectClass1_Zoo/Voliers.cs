@@ -35,16 +35,16 @@ namespace ProjectClass1_Zoo
 
         //Расписываем функционал
         //Удаление животного из вольера
-        public string DeleteAnimal(string DeleteName, string species) //Задаем имя животного, которое нужно выселить и его вид
+        public Message DeleteAnimal(AbstractAnimals animal) //Задаем имя животного, которое нужно выселить и его вид
         {
-            foreach (AbstractAnimals animal in Animals)
+            Animals.Remove(animal);
+            return new Message()
             {
-                if (species == animal.Species && DeleteName == animal.Name) //перебираем цикл до тех пор, пока не найдём нужное имя и вид в имеющимся листе
-                {
-                    Animals.Remove(animal);
-                }
-            }
-            return $"Из вольера {Name} выселили {species} {DeleteName}";
+                Text = $"Из {Name} выселили {animal.Species} {animal.Name}",
+                SenderName = Name,
+                SenderType = "Volier",
+                MessageType = MessageType.Succses
+            };
         }
 
         //Узнать сколько и какой еды осталось в кормушках
@@ -87,3 +87,65 @@ namespace ProjectClass1_Zoo
         }
     }
 }
+
+
+
+
+
+//Добавление животного/ Не копировка, код взят чисто для разбора
+//public Message AddAnimal(AbstractAnimals animal)
+//{
+//    if (Biom != animal.Biom)
+//    {
+//        return new Message()
+//        {
+//            Text = $"В {Name} не поселился {animal.Species} {animal.Name}, не подходит биом",
+//            SenderName = Name,
+//            SenderType = "Aviary",
+//            MessageType = MessageType.FaildAddingToAviary
+//        };
+//    }
+//    else if (!IsPodhodiatSosedi(animal))
+//    {
+//        return new Message()
+//        {
+//            Text = $"В {Name} не поселился {animal.Species} {animal.Name}, из-за соседей",
+//            SenderName = Name,
+//            SenderType = "Aviary",
+//            MessageType = MessageType.FaildAddingToAviary
+//        };
+//    }
+//    else
+//    {
+//        Animals.Add(animal);
+//        return new Message()
+//        {
+//            Text = $"В {Name} поселился {animal.Name}",
+//            SenderName = Name,
+//            SenderType = "Aviary",
+//            MessageType = MessageType.AddingToAviary
+//        };
+//    }
+//}
+
+//private bool IsPodhodiatSosedi(AbstractAnimals animal)
+//{
+//    foreach (AbstractAnimals a in Animals)
+//    {
+//        if ((a.IsPredator || animal.IsPredator) && a.Species != animal.Species)
+//        {
+//            return false;
+//        }
+//    }
+//    return true;
+//}
+
+//public override bool Equals(object? obj)
+//{
+//    return obj is Voliers voliers &&
+//           Name == voliers.Name &&
+//           Biom == voliers.Biom &&
+//           Square == voliers.Square &&
+//           Species == voliers.Species;
+
+//}

@@ -14,5 +14,14 @@ namespace ProjectClass1_Zoo
         public string SenderName {get; set;} //Имя Вольера/Животного, от которого будет исходить сообщение
         public string SenderType {get; set;} //Тип Вольер/Животное откуда будет посылаться сообщение
         public MessageType MessageType {get; set;} //Тип сообщения или ошибки
+
+        public override bool Equals(object? obj)
+        {
+            return obj is Message message &&
+                   Text == message.Text &&
+                   SenderName == message.SenderName &&
+                   SenderType == message.SenderType &&
+                   MessageType == message.MessageType;
+        }
     }
 }

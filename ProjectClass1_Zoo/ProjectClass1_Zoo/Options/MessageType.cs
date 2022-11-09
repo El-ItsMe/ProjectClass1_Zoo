@@ -9,6 +9,8 @@ namespace ProjectClass1_Zoo.Options
     public enum MessageType
     {
         Succses,
-        Failed
+        Failed,
+        FaildAddingToAviary,
+        AddingToAviary
     }
 }
