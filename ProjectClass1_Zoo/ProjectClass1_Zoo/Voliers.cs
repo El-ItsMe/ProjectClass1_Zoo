@@ -12,7 +12,6 @@ namespace ProjectClass1_Zoo
         public BiomVariants Biom { get; protected set; } // 2) Биом
         public int Square { get; protected set; } // 3) Площадь вольера
         public string Species { get; protected set; } //Разновидность животных
-        public Dictionary<string, int> LeftFood { get; protected set; }
         public List<AbstractAnimals> Animals { get; protected set; } // создан не список, а переменная для его хранения
         //коммент к строчке 12 - модификатор protected, так как лист мы можем читать только в наследниках. 
 
@@ -75,15 +74,87 @@ namespace ProjectClass1_Zoo
             }
         }
 
-        //Может содержать в себе различные типы животных (!!! Нужно доработать)
+        //Может содержать в себе различные типы животных
 
-        public string IsItPossibleToPlaceTheseAnimals(AbstractAnimals animals)
+        public Message IsItPossibleToPlaceTheseAnimals(AbstractAnimals animals)
         {
-            foreach (AbstractAnimals a in Animals)
+            if (animals.IsPredator && animals.Species == Species && FindSvobodnoeMesto() > animals.RequiredArea)
             {
-                if (!a.IsPredator);
+                return new Message()
+                {
+                    Text = $"{animals.Species} {animals.Name} может жить с остальными животными в этом вольере",
+                    SenderName = Name,
+                    SenderType = "Aviary",
+                    MessageType = MessageType.Succses
+                };
             }
-            return $"{animals.Species} {animals.Name} может жить с остальными животными в этом вольере";
+            else if (!animals.IsPredator)/*&& animals.Species == Species && FindSvobodnoeMesto() > animals.RequiredArea)*/
+            {
+                foreach (AbstractAnimals a in Animals)
+                    if (a.IsPredator)
+                    {
+                        return new Message()
+                        {
+                            Text = "В этом вольере живут хищники, травоядным к ним нельзя",
+                            SenderName = Name,
+                            SenderType = "Aviary",
+                            MessageType = MessageType.Failed
+                        };
+                        break;
+                    }
+                    else 
+                    {
+                        if (FindSvobodnoeMesto() > animals.RequiredArea)
+                        {
+                            return new Message()
+                            {
+                                Text = "В этот вольер может поселиться животное",
+                                SenderName = Name,
+                                SenderType = "Aviary",
+                                MessageType = MessageType.Succses
+                            };
+                        }
+                        else
+                        {
+                            return new Message()
+                            {
+                                Text = "Нехватка площади, животно поселить нельзя",
+                                SenderName = Name,
+                                SenderType = "Aviary",
+                                MessageType = MessageType.Failed
+                            };
+                        }
+                    }
+
+                return new Message()
+                {
+                    Text = "Перейти к рассмотрению не хищных животных",
+                    SenderName = Name,
+                    SenderType = "Aviary",
+                    MessageType = MessageType.Failed
+                };
+            }
+            else
+            {
+                return new Message()
+                {
+                    Text = "Перейти к рассмотрению не хищных животных",
+                    SenderName = Name,
+                    SenderType = "Aviary",
+                    MessageType = MessageType.Failed
+                };
+            }
+        }
+
+        private int FindSvobodnoeMesto()
+        {
+            int svobodnoeMesto = Square;
+                foreach (AbstractAnimals animal in Animals)
+                {
+                    svobodnoeMesto -= animal.RequiredArea;
+                }
+
+            return svobodnoeMesto;
         }
     }
 }

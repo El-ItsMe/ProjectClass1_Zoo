@@ -15,6 +15,7 @@ namespace ProjectClass1_Zoo.Test
         {
             Voliers voliers = new Voliers("Volier for Horse", Options.BiomVariants.Tropical_rain_forests, 20, "Horse"); //создаём вольер
             AbstractAnimals animal = new HorseAnimals("Diego", 4); //Лошадку по имени Диего, со всеми составляющими
+
             //Пишем как должен выглядеть вольер в ожидании
             Voliers expectedVoliers = new Voliers("Volier for Horse", Options.BiomVariants.Tropical_rain_forests, 20, "Horse");
             expectedVoliers.Animals.Remove(new HorseAnimals("Diego", 4)); //После-вызываем метод, который нужно протестить
