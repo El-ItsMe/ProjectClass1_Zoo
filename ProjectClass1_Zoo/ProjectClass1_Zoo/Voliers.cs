@@ -6,7 +6,6 @@ namespace ProjectClass1_Zoo
 {
     public class Voliers
     {   //Из чего состоит вольер
-        //Примечание. Вольер создаю с расчетом того, что изначально в нём живут животные одного и того же вида
         public string Name { get; protected set; } // 1) Имя
         public string DeleteName { get; set; }
         public List<FoodList> FoodVariants { get; protected set; } //Чем питается
@@ -24,10 +23,9 @@ namespace ProjectClass1_Zoo
             Square = square;
             Species = species;
             Animals = new List<AbstractAnimals>(); //!!!создание объекта
-            //коммент к 20 строчке - возможно, чтобы задать какое животное(-ые) там уже живёт(-ут)
         }
 
-        //Поселенец
+        //Поселенец (упрощенный вариант)
         public string PoselilsaIliNet(AbstractAnimals animal)
         {
             Animals.Add(animal);
@@ -41,7 +39,7 @@ namespace ProjectClass1_Zoo
         {
             foreach (AbstractAnimals animal in Animals)
             {
-                if (species == animal.Species && DeleteName == animal.Name) //перебираем цикл до тех пор, пока не найдём нужное имя и вид
+                if (species == animal.Species && DeleteName == animal.Name) //перебираем цикл до тех пор, пока не найдём нужное имя и вид в имеющимся листе
                 {
                     Animals.Remove(animal);
                 }
@@ -51,13 +49,33 @@ namespace ProjectClass1_Zoo
 
         //Узнать сколько и какой еды осталось в кормушках
        
-        public string FindHowMuchAndWhatKindOfFoodLeftInFeeder(FoodList name, int givenFood, int eatenFood)
-        { 
-            int amount = givenFood - eatenFood;
-            return $"В кормушке для {name} осталось {amount} кг {name}";
+        public Message FindHowMuchAndWhatKindOfFoodLeftInFeeder(FoodList foodname, int givenFood, int eatenFood) //Записываем в метод тип еды, сколько еды дали, сколько еды съедено
+        {
+            if (givenFood == 0) //если еду совсем не дали, выводим сообщение о том, что нужно вывести письмо
+            {
+                return new Message()
+                {
+                    Text = "Kormuwka pustaya, nujno dobavit edi",
+                    SenderName = Name,
+                    SenderType = "Volier",
+                    MessageType = MessageType.Failed
+                };
+            }
+            else
+            {
+                int amount = givenFood - eatenFood; //В ином случае, отнимаем ранее положенную в кормушку еду от съеденной доли и выводим результат
+
+                return new Message
+                {
+                    Text = $"В кормушке для {Name} осталось {amount} кг {foodname}",
+                    SenderName = Name,
+                    SenderType = "Aviary",
+                    MessageType = MessageType.Succses
+                };
+            }
         }
 
-        //Может содержать в себе различные типы животных
+        //Может содержать в себе различные типы животных (!!! Нужно доработать)
 
         public string IsItPossibleToPlaceTheseAnimals(AbstractAnimals animals)
         {

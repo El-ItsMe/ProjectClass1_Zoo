@@ -35,7 +35,7 @@ namespace ProjectClass1_Zoo.Animals
 
         public virtual void DoEat(string food, int kg)
         {
-            if (food.Contains(food))
+            if (food.Contains(food)) //Не забыть. Contains здесь нужен, чтобы определить входит ли вписанная намиеда в изначальный список животного или нет
             {
                 Console.WriteLine($"{Name} was eat {kg} kg/gr {food}");
             }

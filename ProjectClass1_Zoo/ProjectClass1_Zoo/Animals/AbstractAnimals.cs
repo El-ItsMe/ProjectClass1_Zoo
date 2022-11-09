@@ -37,7 +37,7 @@ namespace ProjectClass1_Zoo.Animals
 
         public string Species { get; protected set; } //разновидность животных
 
-        public BiomVariants Biom { get; protected set; }//Необходимый биом
+        public BiomVariants Biom { get; protected set; }//Необходимый биом (В options создаем переменную enum и расписываем перечень biom ов)
 
         public int RequiredArea { get; protected set; } //Необходимая площадь на особь
 
@@ -53,15 +53,15 @@ namespace ProjectClass1_Zoo.Animals
             Age = age;
         }
 
-        public virtual void DoSound()
+        public virtual void DoSound() //Все должны издать звук
         {
             Console.WriteLine($"{Name} makes a sound like {EmittedSound}");
         }
         
 
-        public abstract void DoPlay();
+        public abstract void DoPlay(); //должны поиграть (в каждом наследнике нужно сделать override)
 
-        public virtual void DoEat(string food, int kg)
+        public virtual void DoEat(string food, int kg) //по сценарию кушают
         {
             if (food.Contains(food))
             {

@@ -33,7 +33,7 @@ namespace ProjectClass1_Zoo.Animals
             Console.WriteLine($"{Name} eating hay"); //ест сено
         }
 
-        public virtual void DoEat(string food, int kg)
+        public virtual void DoEat(string food, int kg) //Не забыть. Contains здесь нужен, чтобы определить входит ли вписанная намиеда в изначальный список животного или нет
         {
             if (food.Contains(food))
             {

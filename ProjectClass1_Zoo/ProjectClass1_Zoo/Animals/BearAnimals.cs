@@ -11,20 +11,21 @@ namespace ProjectClass1_Zoo.Animals
 {
     public class BearAnimals: AbstractAnimals
     {
-        public BearAnimals(string name, int age): base(name, age)
+        public BearAnimals(string name, int age): base(name, age) //это означает вызов базового конструктора из абстракции
         {
-            FoodVariants = new List<FoodList>()
+            FoodVariants = new List<FoodList>() //В абстракции мы создали метод для хранения переменной листа,
+                                                //и здесь вписываем то, какая еда будет хранится для каждого животного отдельн
             {
                 FoodList.Bamboo
             };
-            Biom = Options.BiomVariants.Tropics;
+            Biom = Options.BiomVariants.Tropics; //Из всех типов, вызываем нужный нам Biom. С его помощью вероятность допусить ошибку при написании снижается
             RequiredArea =  30;
             EmittedSound = "Grrrrr-Grrrr";
             IsPredator = true;
             Species = "Bear";
         }
 
-        public override void DoSound()
+        public override void DoSound() 
         {
             Console.WriteLine(EmittedSound);
         }
@@ -36,7 +37,7 @@ namespace ProjectClass1_Zoo.Animals
 
         public virtual void DoEat(string food, int kg)
         {
-            if (food.Contains(food))
+            if (food.Contains(food)) //Не забыть. Contains здесь нужен, чтобы определить входит ли вписанная намиеда в изначальный список животного или нет
             {
                 Console.WriteLine($"{Name} was eat {kg} kg/gr {food}");
             }
